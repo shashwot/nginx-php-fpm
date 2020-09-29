@@ -1,5 +1,9 @@
 # nginx-php-fpm
 
+<img src="https://www.milesweb.in/hosting-faqs/wp-content/uploads/2019/05/How-To-Deploy-a-PHP-Application-with-Kubernetes-on-Ubuntu-16.04.gif" alt="Alt Text" style="zoom:60%" />
+
+<br>
+
 ### Versions/tags
 
 |  `software`  |      `version`      |
