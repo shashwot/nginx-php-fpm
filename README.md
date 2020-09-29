@@ -144,7 +144,7 @@ server {
 ```bash
 $ php artisan key:generate
 $ php artisan config:cache
-$ php arisan migrate
+$ php artisan migrate
 ```
 
 <br>
