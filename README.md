@@ -1,5 +1,9 @@
 # nginx-php-fpm
 
+<img src="https://www.milesweb.in/hosting-faqs/wp-content/uploads/2019/05/How-To-Deploy-a-PHP-Application-with-Kubernetes-on-Ubuntu-16.04.gif" alt="Alt Text" style="zoom:60%" />
+
+<br>
+
 ### Versions/tags
 
 |  `software`  |      `version`      |
@@ -8,6 +12,16 @@
 |    `php`     |      `7.3.22`       |
 |  `php-fpm`   | `7.3.22 (fpm-fcgi)` |
 |   `mysql`    |      `5.7.31`       |
+
+<br>
+
+### Links related to this Project
+
+[LARAVEL](https://github.com/laravel/laravel)
+
+[Dockerhub](https://hub.docker.com/r/shashwot/php-fpm)
+
+[Kubernetes](https://github.com/shashwot/Kubernetes)
 
 <br>
 
