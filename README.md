@@ -104,7 +104,10 @@ CMD ["php-fpm"]
 # Docker image
 
 ```bash
+$ docker build -t “shashwot/php-fpm” .
+#Or use the image below
 $ docker pull shashwot/php-fpm
+$ docker pull shashwot/nginx-more
 ```
 
 <br>
