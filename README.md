@@ -7,7 +7,7 @@
 | `nginx-more` |      `1.16.1`       |
 |    `php`     |      `7.3.22`       |
 |  `php-fpm`   | `7.3.22 (fpm-fcgi)` |
-|   `mysql`    |        `5.7`        |
+|   `mysql`    |      `5.7.31`       |
 
 <br>
 
