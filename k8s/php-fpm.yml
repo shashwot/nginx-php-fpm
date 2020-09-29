@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-fpm
+  labels:
+    name: php-fpm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "php-fpm"
+  template:
+    metadata:
+      labels:
+        app: "php-fpm"
+    spec:
+      initContainers:
+        - name: check-db
+          image: busybox:1.28
+          command: ['sh', '-c', 'until nc -z db 3306; do sleep 2; done']
+      containers:
+      - image: "shashwot/php-fpm:full"
+        name: php-fpm
+        ports:
+        - containerPort: 9000
+          protocol: TCP
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/local/etc/php/conf.d/local.ini
+          subPath: local.ini
+        - name: laravel-persistent-storage
+          mountPath: /var/www
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - chown -R www-data:www-data /var/www
+              - chmod -R 775 /var/www
+      volumes:
+        - name: config-volume
+          configMap:
+            name: php-config
+        - name: laravel-persistent-storage
+          persistentVolumeClaim:
+            claimName: pv-claim-laravel
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-fpm
+  labels:
+    app: php-fpm
+spec:
+  type: ClusterIP
+  selector:
+    app: php-fpm
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: php-config
+data:
+    local.ini: |
+      upload_max_filesize=40M
+      post_max_size=40M

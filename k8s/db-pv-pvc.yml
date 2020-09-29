@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-volume-mysql
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/opt/mysql"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-claim-mysql
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 2Gi
