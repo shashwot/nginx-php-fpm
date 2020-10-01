@@ -172,3 +172,7 @@ $ kubectl apply -f .
 ```
 
 <br>
+
+# Output
+
+![Alt text](Laravel.png?raw=true "Laravel")
